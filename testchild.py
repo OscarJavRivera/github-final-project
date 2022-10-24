@@ -1,2 +1,2 @@
 ## Adding a new file in child branch
-print ("Inside Child branch print.")
+print("Lord of the Rings is ’the best ’ fantasy movie ever !")
