@@ -44,5 +44,8 @@ print(string1 + "---"+ string2)
 x = False
 print(not(x))
 # - [ ] Create another variable y and set it to False. Print the value of x and y.
+y= False
+print (x and y)
 # - [ ] Using the same variables print the value of x or y.
+print(x or y)
 # - [ ] Bonus Question: Try using all the three logical operators in a equation and try to figure out which operator works first and which one operates last.
