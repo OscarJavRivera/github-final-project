@@ -55,4 +55,54 @@ def paint_binary(floor_num):
     
     return binary_num
 
-paint_binary(0)
+## Create a second version of the decimal to binary, ## 
+## floor_num_from_binary_v2() which takes in the argument ##
+## binary_floor (a Python binary number) and convert it ##
+## to decimal value using Python in-built functions ##
+
+def floor_num_from_binary_v2(binary_floor):
+    '''(binary) --> (int)
+    Makes use of Python's in-built function to convert
+    binary floor number to int and returns it.
+    '''
+    ##TODO: Write your code below by removing the None and setting up your 
+    # own logic. ##
+    
+    floor_num = int(binary_floor,2)
+    
+    return floor_num
+
+#print("Resul of floor_num_from_binary_v2: ",floor_num_from_binary_v2("111"))
+
+## Create a second version of the binary to decimal, ## 
+## paint_binary_v2() which takes in the argument ##
+## floor_num (an integer value) and convert it ##
+## to binary value using Python in-built functions ##
+
+def paint_binary_v2(floor_num):
+    '''(int) --> (str)
+    Makes use of Python's in-built function to convert
+    integer valued floor number you are in and returns
+    it.
+    '''
+
+	##TODO: Write your code below by removing the None and setting up your 
+    # own logic. It would be more than 1 line so think carefully. ##
+    assert floor_num<=15, "Error" 
+    binary_num_string= bin(floor_num)
+    binary_num_string=binary_num_string.split("0b")
+    binary_num=binary_num_string[1]
+    while len(binary_num)<4:
+        binary_num="0"+binary_num
+    binary_num =None
+    return binary_num
+
+#print("The result of paint_binary_v2 is:",paint_binary_v2(16))
+paint_binary_v2(16)
+
+def square(x):
+    assert x>=0, 'Only positive numbers are allowed'
+    return x*x
+
+# n = square(2) # returns 4
+n = square(-2) # raise an AssertionError
