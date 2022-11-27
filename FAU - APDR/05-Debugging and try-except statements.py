@@ -25,24 +25,33 @@ def list_ratios(list_1 , list_2):
     new_list = []
     
     for i in range(len(list_1)):
-
-        #TODO: 1. Write a try statement
-        #TODO: 2. Write an except statement where if there is some division by zero then nan value will be the result
-        #TODO: 3. Write an except statement where if there is any type problem then None value will be the result
-        for i in list_1:#,list_2:
-            try:
-                new_list[i]= list_1[i]/list_2[i]
+        
+        try:
+            new_list.append(list_1[i]/list_2[i])
+        
+        except ZeroDivisionError:
+            print ("Error: Division by zero")
+            new_list.append("nan")
             
-            except NameError:
-                print ("Error:Division by zero")
+        except TypeError:
+            print("Wrong input type. Values should be integer.")
+            new_list.append(None)
+        else:
+            print("The operation",list_1[i],"/",list_2[2],"was done.")
 
-                return new_list
+    return new_list
 
 #Testing the assertion (when the list is the same)
 list_1=[0.0, 5.0, 6.0]
 list_2=[0.0, 5.0, 6.0]
 #print(list_ratios(list_1,list_2))
 
+#Testing the TODO 2 & 3
 list_1=[1.0, '2.', 3.0]
 list_2=[0.0, 5.0, 6.0]
+#print(list_ratios(list_1,list_2))
+
+#Testing the good case
+list_1=[4.0, 5, 7]
+list_2=[8.0, 10.0, 10.0]
 print(list_ratios(list_1,list_2))
