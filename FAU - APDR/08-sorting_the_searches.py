@@ -97,9 +97,9 @@ class ModifiedMergeSort:
 
 ##Testing the ModifiedMergeSort class
 #[8], [2], [2], [1], [5], [6]
-list1 = ModifiedMergeSort([22, 11, 3, 44])
-list1.sorting()
-list1.display()
+#list1 = ModifiedMergeSort([22, 11, 3, 44])
+#list1.sorting()
+#list1.display()
 
 
 ##----------------------------------------------------------------------------------------------------------
@@ -107,66 +107,36 @@ list1.display()
 class BinarySearch:
 	def __init__(self,data):
 		self.data=data
-		
+		print('This is the list: ',self.data)
 
-	def search(self,data):
-		self.data=data
-		print(range(len(self.data)))
-		if range(len(self.data))==0: return True
-		else: return False
+	def search(self,val):
+		len_data=len(self.data)
+		if len_data==0:return False # Check base case
+		else:
+		#Store the List indixes (min and max
+			min_in=0
+			max_in=len_data-1
+			return self.__bs_helper(val,min_in,max_in)
 
-
-
-
-
-
-
-
-
-
-
-					# for i in range(len_subpiece):
-		# 	for j in range(len(subpiece[i])):
-		# 		sort_ps.append(subpiece[i][j])
-		# subpiece=[]
-
-		# while x<len(sort_ps):
-		# 	if sort_ps[x]>=sort_ps[x+3]:
-		# 		subpiece.append(x+2)
-		# 		subpiece.append(x+3)
-		# 		subpiece.append(x)
-		# 		subpiece.append(x+1)
-				
-		# 	if sort_ps[x+1]>=sort_ps[x+2]:
-		# 		subpiece.append(x)
-		# 		subpiece.append(x+1)
-		# 		subpiece.append(x+3)
-		# 		subpiece.append(x+2)
 			
-		# 	if sort_ps[x]<=sort_ps[x+2] and sort_ps[x+1]>=sort_ps[x+3]:
-		# 		subpiece.append(x)
-		# 		subpiece.append(x+2)
-		# 		subpiece.append(x+3)
-		# 		subpiece.append(x+1)
+	def __bs_helper(self,val,min_in,max_in):
+		# Check the base case when the array has more than 2 elements
+		if max_in>=min_in: 
+			mid=min_in+(max_in-min_in)//2
+			
+			if self.data[mid]==val:
+				return True#The element was found
+			elif self.data[mid]>val:#Check if Value is located in the left of right part of the List
+				return self.__bs_helper(val,min_in,mid-1)#Look in the left side of the List
+			else:
+				return self.__bs_helper(val,mid+1,max_in)
+		else:
+			return False
 
-		# 	elif sort_ps[x]<=sort_ps[x+2] and sort_ps[x+1]<=sort_ps[x+3]:
-		# 		subpiece.append(x)
-		# 		subpiece.append(x+2)
-		# 		subpiece.append(x+1)
-		# 		subpiece.append(x+3)
-		# 	else:
-				
 
-		# 	if sort_ps[x]>sort_ps[x+2] and sort_ps[x+1]<sort_ps[x+3]:
-		# 		subpiece.append(x+2)
-		# 		subpiece.append(x)
-		# 		subpiece.append(x+1)
-		# 		subpiece.append(x+3)
-		# 	x=x+4
-		# for x in range(len(sort_ps)-1):
-		# 	if sort_ps[x]<=sort_ps[x+1]:
-		# 		subpiece.append(sort_ps[x])
-		# 		subpiece.append(sort_ps[x+1])
-		# 	else:
-		# 		subpiece.append(sort_ps[x+1])
-		# 		subpiece.append(sort_ps[x])
+#Testing the Binary Seach
+list_bs=BinarySearch([1, 11, 22, 44])
+#list_bs=BinarySearch([])
+val=22
+val_found=list_bs.search(val)
+print(val_found)
