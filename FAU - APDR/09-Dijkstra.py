@@ -112,10 +112,12 @@ class Dijkstra:
         This method returns the path at the end by using the route attribute
         '''
         print('The graph is: ',self.graph)
+        #Look for the next node with the shortest value
         next_node=self.start_node
         while next_node!='':
             next_node= self.__next_node(next_node)
 
+        #Find the shortest path and reverse it
         shortest_path=[]
         node=self.end_node
         shortest_path.append(node)
@@ -124,7 +126,6 @@ class Dijkstra:
             shortest_path.append(node)
         shortest_path.reverse()
         return shortest_path
-        print('The shortest path: ',shortest_path)
 
 
 #Testing the Dijkstra Algorithm
