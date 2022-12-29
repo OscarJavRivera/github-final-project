@@ -138,6 +138,6 @@ graph={
         'F': {'E': 2, 'S': 11},
         'S': {'E': 9, 'F': 11}}
 g1=Dijkstra(graph,'S','A')
-print(g1.find_path())
+g1.find_path()
 
 
